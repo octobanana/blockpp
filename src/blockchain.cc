@@ -58,3 +58,19 @@ bool Blockchain::validate_block(Block block, Block block_prev)
   }
   return valid;
 }
+
+int Blockchain::append_block(Data data)
+{
+  Block block {generate_block(data)};
+  int status {0};
+  if (validate_block(block, chain.back()))
+  {
+    chain.emplace_back(block);
+    status = 0;
+  }
+  else
+  {
+    status = -1;
+  }
+  return status;
+}
