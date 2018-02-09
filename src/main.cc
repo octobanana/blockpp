@@ -66,5 +66,8 @@ int main(int argc, char *argv[])
   // init blockchain
   Blockchain blockchain;
 
+  // add genesis block
+  blockchain.genesis_block();
+
   return 0;
 }

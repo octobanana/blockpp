@@ -21,6 +21,8 @@ public:
 
   Blockchain();
 
+  void genesis_block();
+
 private:
   Chain chain;
 }; // class Blockchain
