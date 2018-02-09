@@ -1,3 +1,5 @@
+#include "blockchain.hh"
+
 #include <ob/parg.hh>
 using Parg = OB::Parg;
 
@@ -61,7 +63,8 @@ int main(int argc, char *argv[])
     return 1;
   }
 
-  // init here
+  // init blockchain
+  Blockchain blockchain;
 
   return 0;
 }

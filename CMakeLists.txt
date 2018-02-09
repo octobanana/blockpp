@@ -29,6 +29,7 @@ include_directories(
 
 set (SOURCES
   src/main.cc
+  src/blockchain.cc
 )
 
 set (HEADERS
