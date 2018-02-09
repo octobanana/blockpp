@@ -30,6 +30,7 @@ include_directories(
 set (SOURCES
   src/main.cc
   src/blockchain.cc
+  src/crypto.cc
 )
 
 set (HEADERS
@@ -43,4 +44,5 @@ add_executable (
 
 target_link_libraries (
   ${TARGET}
+  crypto
 )

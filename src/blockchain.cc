@@ -1,6 +1,11 @@
 #include "blockchain.hh"
+using Data = Blockchain::Data;
+using Block = Blockchain::Block;
+
+#include "crypto.hh"
 
 #include <string>
+#include <sstream>
 #include <vector>
 #include <ctime>
 
@@ -16,4 +21,22 @@ void Blockchain::genesis_block()
   block.data = "Genesis Block";
   block.hash_prev = "";
   chain.emplace_back(block);
+}
+
+std::string Blockchain::hash_block(Block block)
+{
+  std::stringstream sum;
+  sum << block.index << block.timestamp << block.data << block.hash_prev;
+  return (Crypto::sha256(sum.str()));
+}
+
+Block Blockchain::generate_block(Data data)
+{
+  Block block;
+  block.index = chain.size();
+  block.timestamp = std::time(nullptr);
+  block.data = data.str;
+  block.hash_prev = chain.back().hash;
+  block.hash = hash_block(block);
+  return block;
 }

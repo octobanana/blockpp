@@ -7,6 +7,12 @@
 class Blockchain
 {
 public:
+  class Data
+  {
+  public:
+    std::string str;
+  }; // class Data
+
   class Block
   {
   public:
@@ -22,6 +28,8 @@ public:
   Blockchain();
 
   void genesis_block();
+  std::string hash_block(Block block);
+  Block generate_block(Data data);
 
 private:
   Chain chain;
