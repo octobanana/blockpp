@@ -40,3 +40,21 @@ Block Blockchain::generate_block(Data data)
   block.hash = hash_block(block);
   return block;
 }
+
+bool Blockchain::validate_block(Block block, Block block_prev)
+{
+  bool valid {true};
+  if (block.index != block_prev.index + 1)
+  {
+    valid = false;
+  }
+  else if (block.hash_prev != block_prev.hash)
+  {
+    valid = false;
+  }
+  else if (hash_block(block) != block.hash)
+  {
+    valid = false;
+  }
+  return valid;
+}

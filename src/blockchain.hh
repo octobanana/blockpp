@@ -30,6 +30,7 @@ public:
   void genesis_block();
   std::string hash_block(Block block);
   Block generate_block(Data data);
+  bool validate_block(Block block, Block block_prev);
 
 private:
   Chain chain;
